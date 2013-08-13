@@ -10,8 +10,8 @@ pip install git+https://github.com/endthestart/django-custom-auth#egg=django-cus
 AUTHENTICATION_BACKENDS = ('custom_auth.auth.Authenticate',)  
 AUTH_USER_MODEL = 'custom_auth.User'
 
-# In your models you reference a User like this
+# Utilization in your models
 user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
-# In your models you reference a User like this
+# To access the user model
 from custom_auth.models import User
