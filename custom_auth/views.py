@@ -7,7 +7,7 @@ from .forms import RegistrationForm, LoginForm
 from .models import User
 
 
-def register(request, template_name='auser/register.html'):
+def register(request, template_name='custom_auth/register.html'):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -27,16 +27,18 @@ def registration_successful(request, template_name='auser/registration_successfu
     return render_to_response(template_name, RequestContext(request))
 
 
-def activate(request, template_name='auser/activate.html'):
+def activate(request, template_name='custom_auth/activate.html'):
     form = RegistrationForm()
     return render_to_response(template_name, {'form': form,}, RequestContext(request))
 
 
-def login(request, template_name='auser/login.html'):
+def login(request, template_name='custom_auth/login.html'):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.login(request):
-            return redirect('manage_home')
+            if hasattr(request.POST, 'redirect_to'):
+                return redirect(request.POST.get('redirect_to'))
+            return redirect('/')
     else:
         form = LoginForm()
     return render_to_response(template_name, {'form': form,}, RequestContext(request))
