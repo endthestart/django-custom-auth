@@ -1,5 +1,5 @@
+from django.contrib import messages
 from django.contrib.auth import logout as logout_user
-
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 
@@ -36,6 +36,7 @@ def login(request, template_name='custom_auth/login.html'):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.login(request):
+            messages.success(request, "You have successfully logged in.")
             if hasattr(request.POST, 'redirect_to'):
                 return redirect(request.POST.get('redirect_to'))
             return redirect('/')
