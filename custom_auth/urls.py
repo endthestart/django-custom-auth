@@ -6,6 +6,7 @@ from custom_auth import views as auser_views
 urlpatterns = patterns('',
     url(r'^login/$', auser_views.login, {'template_name': 'custom_auth/login.html'}, name='auth_login'),
     url(r'^logout/$', auser_views.logout, name='auth_logout'),
+    url(r'^manage/$', auser_views.manage, name='auth_manage'),
     url(r'^password/change/$', auth_views.password_change, name='auth_password_change'),
     url(r'^password/change/done/$', auth_views.password_change_done, name='auth_password_change_done'),
     url(r'^password/reset/$', auth_views.password_reset, name='auth_password_reset'),
