@@ -48,3 +48,6 @@ def login(request, template_name='custom_auth/login.html'):
 def logout(request):
     logout_user(request)
     return redirect('auth_login')
+
+def manage(request, template_name='custom_auth/manage.html'):
+    return render_to_response(template_name, {}, RequestContext(request))
