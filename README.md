@@ -14,6 +14,10 @@ INSTALLED_APPS += (
 AUTHENTICATION_BACKENDS = ('custom_auth.auth.Authenticate',)  
 AUTH_USER_MODEL = 'custom_auth.User'
 
+# URLs
+
+url(r'^account/', include('custom_auth.urls')),
+
 # Utilization in your models
 user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
