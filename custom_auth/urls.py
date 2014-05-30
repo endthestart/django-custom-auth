@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^password/reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.password_reset_confirm, name='auth_password_reset_confirm'),
     url(r'^password/reset/complete/$', auth_views.password_reset_complete, name='auth_password_reset_complete'),
     url(r'^password/reset/done/$', auth_views.password_reset_done, name='auth_password_reset_done'),
+    url(r'^profile/$', auser_views.prifle, {'template_name': 'custom_auth/profile.html'}, name='auth_profile'),
     url(r'^register/$', auser_views.register, {'template_name': 'custom_auth/register.html'}, name="auth_register"),
     url(r'^register/successful/$', auser_views.registration_successful, {"template_name": "custom_auth/registration_successful.html"}, name="registration_successful")
 )
