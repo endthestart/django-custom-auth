@@ -33,6 +33,10 @@ def register(request, template_name='custom_auth/register.html'):
 
 def registration_successful(request, template_name='auser/registration_successful.html'):
     return render_to_response(template_name, RequestContext(request))
+    
+    
+def profile(request, template_name='custom_auth/profile.html'):
+    return render_to_response(template_name, RequestContext(request))
 
 
 def activate(request, template_name='custom_auth/activate.html'):
