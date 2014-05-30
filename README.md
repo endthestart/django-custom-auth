@@ -16,7 +16,7 @@ AUTH_USER_MODEL = 'custom_auth.User'
 
 # URLs
 
-url(r'^account/', include('custom_auth.urls')),
+url(r'^accounts/', include('custom_auth.urls')),
 
 # Utilization in your models
 user = models.ForeignKey(settings.AUTH_USER_MODEL)
