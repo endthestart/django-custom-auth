@@ -22,4 +22,4 @@ url(r'^accounts/', include('custom_auth.urls')),
 user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
 # To access the user model
-from custom_auth.models import User
+from django.contrib.auth import get_user_model
