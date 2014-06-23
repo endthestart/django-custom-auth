@@ -27,7 +27,7 @@ def register(request, template_name='custom_auth/register.html'):
     else:
         initial = {'email': request.GET.get('email', None)}
         form = RegistrationForm(initial=initial)
-    context = {'form': form, 'next': request.GET.get('next', None),}
+    context = {'form': form, 'next': request.GET.get('next', None), }
     return render_to_response(template_name, context, RequestContext(request))
 
 
@@ -37,7 +37,7 @@ def registration_successful(request, template_name='auser/registration_successfu
 
 def activate(request, template_name='custom_auth/activate.html'):
     form = RegistrationForm()
-    return render_to_response(template_name, {'form': form,}, RequestContext(request))
+    return render_to_response(template_name, {'form': form, }, RequestContext(request))
 
 
 def login(request, template_name='custom_auth/login.html'):
@@ -52,7 +52,7 @@ def login(request, template_name='custom_auth/login.html'):
             messages.error(request, "Your username and password did not match.")
     else:
         form = LoginForm()
-    return render_to_response(template_name, {'form': form,}, RequestContext(request))
+    return render_to_response(template_name, {'form': form, }, RequestContext(request))
 
 
 def logout(request):

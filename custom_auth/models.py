@@ -55,7 +55,8 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(
         _('active'),
         default=True,
-        help_text=_('Designates whether this user should be treated as active. Unselect this instead of deleting accounts.')
+        help_text=_(
+            'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.')
     )
     is_admin = models.BooleanField(
         _('admin'),
