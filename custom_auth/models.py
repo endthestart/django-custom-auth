@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Group
 from django.core.mail import send_mail
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
@@ -66,6 +66,14 @@ class User(AbstractBaseUser):
     date_joined = models.DateTimeField(
         _('date joined'),
         default=timezone.now,
+    )
+    groups = models.ManyToManyField(
+        Group, verbose_name=_('groups'),
+        blank=True, help_text=_('The groups this user belongs to. A user will '
+                                'get all permissions granted to each of '
+                                'his/her group.'),
+        related_name="user_set",
+        related_query_name="user",
     )
 
     USERNAME_FIELD = 'email'
