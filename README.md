@@ -1,10 +1,10 @@
 django-custom-auth
 ==================
 
-Implements email based login with Django 1.5.
+Implements email based login with Django >= 1.5.
 
 # Installation
-pip install git+https://github.com/endthestart/django-custom-auth#egg=django-custom-auth
+pip install django-custom-auth
 
 # Add this to your settings
 INSTALLED_APPS += (
